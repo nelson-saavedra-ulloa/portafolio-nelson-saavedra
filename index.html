@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nelson Saavedra Ulloa | Consultoría en Marketing y Ventas B2B</title>
+    <title>Nelson Saavedra Ulloa | Liderazgo Comercial & Marketing Estratégico</title>
+    <!-- Lucide Icons para una interfaz más moderna -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
-            --primary: #2563eb; /* Azul profesional */
+            --primary: #1e3a8a; /* Azul ejecutivo */
+            --accent: #2563eb;  /* Azul de interacción */
             --dark: #0f172a;
             --light: #f8fafc;
+            --surface: #ffffff;
             --text: #334155;
+            --text-muted: #64748b;
         }
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--light);
@@ -20,114 +25,240 @@
             line-height: 1.6;
         }
         header {
-            background-color: var(--dark);
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
+        }
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
         }
         header h1 {
             font-size: 2.5rem;
             margin: 0 0 10px 0;
+            font-weight: 700;
         }
         header p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            margin: 0 0 20px 0;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        .social-links a {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .social-links a:hover {
+            background: var(--accent);
         }
         .container {
-            max-width: 800px;
-            margin: 40px auto;
+            max-width: 900px;
+            margin: -40px auto 40px auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 10;
         }
-        .about-section {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
+        .card-box {
+            background: var(--surface);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
         }
-        .about-section h2 {
+        h2 {
             color: var(--dark);
             margin-top: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
         }
-        .services {
+        .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
-        .card {
-            background: white;
-            padding: 25px;
+        .metric-item {
+            background: #f1f5f9;
+            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary);
-        }
-        .card h3 { margin-top: 0; color: var(--dark); }
-        .cta-section {
             text-align: center;
-            margin: 50px 0;
-            background: white;
+        }
+        .metric-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+        }
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .service-card {
+            background: var(--surface);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+        }
+        .service-card i {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        .service-card h3 {
+            margin: 0 0 10px 0;
+            color: var(--dark);
+        }
+        .cta-box {
+            text-align: center;
+            background: var(--surface);
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
         .btn {
-            display: inline-block;
-            background-color: #25D366; /* Verde WhatsApp */
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             text-decoration: none;
-            padding: 15px 35px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 5px;
+            padding: 14px 28px;
+            font-weight: 700;
+            border-radius: 6px;
             transition: background 0.2s;
         }
-        .btn:hover { background-color: #128C7E; }
+        .btn-whatsapp { background-color: #25D366; color: white; }
+        .btn-whatsapp:hover { background-color: #128C7E; }
+        .btn-email { background-color: var(--dark); color: white; }
+        .btn-email:hover { background-color: #334155; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Nelson Saavedra Ulloa</h1>
-        <p>Estrategia Comercial, Marketing B2B y Optimización de Ventas</p>
+        <div class="header-content">
+            <!-- Reemplaza 'foto-perfil.jpg' por el enlace de tu fotografía profesional -->
+            <img src="https://via.placeholder.com/150" alt="Nelson Saavedra Ulloa" class="profile-img">
+            <h1>Nelson Saavedra Ulloa</h1>
+            <p>Jefe Comercial & Marketing Estratégico | B2B & Operaciones</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/nsaavedraulloa" target="_blank" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+                <a href="mailto:nelsonsaavedraulloa@gmail.com" title="Correo Electrónico"><i data-lucide="mail"></i></a>
+            </div>
+        </div>
     </header>
 
     <div class="container">
         
-        <!-- Sección Sobre Mí basada en tu CV -->
-        <div class="about-section">
-            <h2>Sobre Mí</h2>
-            <p>Soy <strong>Ingeniero en Marketing</strong> con un Diplomado en Marketing Estratégico y más de 11 años de trayectoria liderando la gestión comercial y operacional en entornos corporativos B2B. Me especializo en el desarrollo y estructuración de unidades de negocio desde cero, negociación consultiva de alto nivel, fidelización de cuentas clave y optimización de embudos comerciales respaldados por KPIs.</p>
+        <!-- Sobre Mí -->
+        <div class="card-box">
+            <h2><i data-lucide="user"></i> Perfil Profesional</h2>
+            <p>Soy <strong>Ingeniero en Marketing</strong> con un Diplomado en Marketing Estratégico y más de 11 años de trayectoria liderando la gestión comercial, estructuración de áreas desde cero, optimización de logística de despacho y fijación estratégica de precios (pricing) en entornos B2B y B2C.</p>
         </div>
 
-        <h2 style="text-align: center; color: var(--dark);">¿Cómo puedo ayudarte a escalar tu negocio?</h2>
-        
-        <div class="services">
-            <div class="card">
-                <h3>Consultoría B2B</h3>
-                <p>Auditoría de tus procesos comerciales, estructuración de propuestas técnicas/económicas y estrategias de pricing eficientes.</p>
-            </div>
-            <div class="card">
-                <h3>Marketing Estratégico</h3>
-                <p>Diseño e implementación de planes comerciales enfocados en posicionamiento de marca, rentabilidad y captación de clientes.</p>
-            </div>
-            <div class="card">
-                <h3>Gestión y CRM</h3>
-                <p>Dirección y capacitación de equipos de ventas, implementación de software CRM y control de KPIs operacionales para la mejora continua.</p>
+        <!-- Logros / Métricas -->
+        <div class="card-box">
+            <h2><i data-lucide="trending-up"></i> Trayectoria en Cifras</h2>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <span class="metric-number">+11</span>
+                    <span class="metric-label">Años de experiencia comercial</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-number">0 a 100</span>
+                    <span class="metric-label">Estructuración de departamentos desde cero</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-number">B2B / B2C</span>
+                    <span class="metric-label">Gestión operacional y CRM</span>
+                </div>
             </div>
         </div>
 
-        <div class="cta-section">
-            <h2>¿Hablamos de tus objetivos comerciales?</h2>
-            <p>Hablemos sobre los desafíos actuales de tu empresa y tracemos una estrategia comercial a medida.</p>
-            <!-- Enlace directo a tu WhatsApp -->
-            <a href="https://wa.me" class="btn" target="_blank">
-                💬 Contactar por WhatsApp
-            </a>
+        <!-- Especialidades -->
+        <div class="card-box">
+            <h2><i data-lucide="briefcase"></i> Áreas de Especialización</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i data-lucide="target" size="32"></i>
+                    <h3>Marketing Estratégico & Pricing</h3>
+                    <p>Diseño de productos, estudios de mercado, estrategias de precios y propuestas técnico-económicas de alto valor.</p>
+                </div>
+                <div class="service-card">
+                    <i data-lucide="users" size="32"></i>
+                    <h3>Liderazgo Comercial & B2B</h3>
+                    <p>Dirección y capacitación de equipos de ventas, negociación consultiva, captura de grandes cuentas y fidelización.</p>
+                </div>
+                <div class="service-card">
+                    <i data-lucide="truck" size="32"></i>
+                    <h3>Gestión Operacional & Logística</h3>
+                    <p>Supervisión de la cadena de despacho, implementación de CRM, análisis de KPIs y protocolos de atención al cliente.</p>
+                </div>
+            </div>
         </div>
+
+        <!-- Llamado a la Acción -->
+        <div class="cta-box">
+            <h2>¿Buscando potenciar tu estrategia comercial o tu equipo de liderazgo?</h2>
+            <p>Hablemos sobre las necesidades de tu empresa o las oportunidades disponibles en la zona.</p>
+            <div class="btn-group">
+                <a href="https://wa.me/56967517805" class="btn btn-whatsapp" target="_blank">
+                    <i data-lucide="message-square"></i> Contactar por WhatsApp
+                </a>
+                <a href="mailto:nelsonsaavedraulloa@gmail.com" class="btn btn-email">
+                    <i data-lucide="mail"></i> Enviar Correo
+                </a>
+            </div>
+        </div>
+
     </div>
 
+    <script>
+        // Inicializar los íconos de Lucide
+        lucide.createIcons();
+    </script>
 </body>
 </html>
